@@ -1,0 +1,53 @@
+/* تنسيق الفورم */
+.form-container {
+    background-color: #ffffff; /* تغيير لون الخلفية إلى أبيض */
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(245, 243, 243, 0.1); /* ظل خفيف */
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2C3E50; /* لون النص أزرق داكن */
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    color: #333; /* لون النص رمادي داكن */
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* لون الحدود رمادي فاتح */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* لون خلفية الحقول رمادي فاتح */
+    color: #333; /* لون النص رمادي داكن */
+}
+
+input[type="number"], input[type="text"], input[type="url"], textarea {
+    margin-top: 5px;
+}
+
+button {
+    background-color: #0066cc; /* لون خلفية الزر أزرق */
+    color: white; /* لون النص أبيض */
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease; /* تأثير تغيير اللون عند التمرير */
+}
+
+button:hover {
+    background-color: #005bb5; /* لون الزر أزرق داكن عند التمرير */
+}

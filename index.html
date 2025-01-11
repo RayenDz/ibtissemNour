@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost/shoping2/index.php -->
+<html lang="ar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض الألبسة</title>
+    <link rel="stylesheet" href="./عرض الألبسة_files/style.css">
+    <link rel="stylesheet" href="./عرض الألبسة_files/style1.css">
+    <link rel="stylesheet" href="./عرض الألبسة_files/style2.css">
+    <link rel="stylesheet" href="./عرض الألبسة_files/Recharche.css">
+    <link rel="stylesheet" href="./عرض الألبسة_files/all.min.css"> <!-- Font Awesome -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+        .promo-bar {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+        .contact-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .contact-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .contact-bar a:hover {
+            color: #ff6f61;
+        }
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #ff3b2f;
+        }
+        .properties-container {
+            padding: 20px;
+        }
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .property {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .property-image {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .property-details {
+            margin-top: 10px;
+        }
+        .btn-buy {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .btn-buy:hover {
+            background-color: #ff3b2f;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination-btn {
+            padding: 10px 15px;
+            background-color: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        .pagination-btn:hover {
+            background-color: #ff3b2f;
+        }
+        .current-page {
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .promo-text {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 20px auto;
+            color: #fff;
+        }
+        .promo-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .promo-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .promo-text .highlight {
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+        .promo-text .icon {
+            font-size: 1.5rem;
+            margin: 0 5px;
+        }
+        .promo-text .cta-button {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .promo-text .cta-button:hover {
+            background-color: #ff3b2f;
+        }
+        .sizes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .sizes span {
+            background-color: #fff;
+            color: #ff6f61;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+        .delivery-info {
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+        .delivery-info i {
+            margin-right: 10px;
+        }
+        .welcome-message {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #ffeb3b;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #ff3b2f;
+        }
+    </style>
+</head>
+<body style="">
+<div class="promo-bar">
+    <span>🎉 تسوق الآن واحصل على خصومات تصل إلى 50%! 🌟 أحدث صيحات الموضة بانتظارك! 🚀</span>
+</div>
+
+<div class="contact-bar">
+    <span>اتصل بنا: </span>
+    <a href="tel:+213549973969"><i class="fas fa-phone"></i> 0549973969</a> | 
+    <a href="https://wa.me/+213549973969" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a> | 
+    <a href="https://web.facebook.com/profile.php?id=100083114323488" target="_blank"><i class="fab fa-facebook"></i> فيسبوك</a> |
+    <a href="https://www.instagram.com/your_instagram_profile" target="_blank"><i class="fab fa-instagram"></i> إنستغرام</a>
+</div>
+
+<header>
+    <div class="top-bar">
+        <div id="date-time">السبت، ١١ يناير ٢٠٢٥ في ١٢:١٧:٤١ م</div>
+    </div>
+    <h1>عرض الألبسة</h1>
+    <nav>
+        <ul>
+            <li><a href="http://localhost/shoping2/add_property.php">إضافة الألبسة</a></li>
+            <li><a href="http://localhost/shoping2/index.php">الرئيسية</a></li>
+            <li><a href="http://localhost/shoping2/view_properties.php">عرض الألبسة</a></li>
+            <li><a href="http://localhost/shoping2/view_Orders.php">عرض الطلبيات</a></li>
+        </ul>
+    </nav>
+    <!-- حقل البحث -->
+    <div class="search-container">
+        <form method="GET" action="http://localhost/shoping2/view_properties.php">
+            <input type="text" name="search" placeholder="ابحث عن منتج أو سعر..." class="search-input" value="">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search"></i> <!-- أيقونة البحث -->
+            </button>
+        </form>
+    </div>
+</header>
+
+<!-- قسم النص الجذاب -->
+<div class="promo-text">
+    <h1>⛔️ حبسي حبسي ⛔️</h1>
+    <p>
+        كيفاش حبيتيه يسمعلك كلامك ويدير برايك ونتي سامحا في روحك؟ 
+        <span class="highlight">قلعي عليك التقاشر</span> والخزانة الي راكي لابستها 
+        و<span class="highlight">لبسيلوا بيجامة كلاص وشابا كيما هذي</span> 🤩
+        وخليه يقولك <span class="highlight">"أنا قاع يموتوا عليا وانا نبغيك غير نتي"</span> 😉💖
+    </p>
+    
+    <div class="sizes">
+        <span>36</span>
+        <span>38</span>
+        <span>40</span>
+        <span>42</span>
+        <span>44</span>
+        <span>46</span>
+        <span>48</span>
+    </div>
+
+    <div class="delivery-info">
+        <i class="fas fa-truck"></i> التوصيل متوفر لـ 58 ولاية 🚙
+    </div>
+
+    <p>
+        ماتترديش وسارعي في الطلب! رح تكون عندك في <span class="highlight">24 ساعة</span> فقط!
+    </p>
+
+    <button class="cta-button">اطلبي الآن!</button>
+
+    <div class="welcome-message">
+        🎀 مرحبا بيك في متجرنا! 🎀
+    </div>
+</div>
+
+<section class="properties-container">
+    <h2>قائمة الألبسة</h2>
+
+    <div class="property-grid"><div class="property"><img src="./عرض الألبسة_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> الجزائر</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=4&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/VxkoFnE.jpeg" alt="ألبسة الحور" class="property-image"><div class="property-details"><h3>ألبسة الحور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=5&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D9%84%D8%AD%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FVxkoFnE.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/b5tZzyZ.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=6&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Fb5tZzyZ.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/dCZyINp.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=7&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FdCZyINp.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/MplVO2W.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=8&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FMplVO2W.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/DKb8I5r.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=9&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FDKb8I5r.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/fk131Ww.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=10&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Ffk131Ww.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/9oz3MOh.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=11&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2F9oz3MOh.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=12&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/Zn43mtH.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=13&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FZn43mtH.jpeg" class="btn-buy">شراء</a></div></div></div>
+    <!-- روابط التنقل بين الصفحات -->
+    <div class="pagination">
+        <span class="current-page">1</span>    </div>
+</section>
+
+<script src="./عرض الألبسة_files/script.js.télécharger"></script>
+<footer>
+    <div class="container">
+        <p>© 2024 موقع بيع المنتوجات. جميع الحقوق محفوظة.</p>
+        <ul>
+            <li><a href="tel:0549973969"><i class="fas fa-phone"></i> اتصل بنا: 0549973969</a></li>
+            <li><a href="mailto:rekabprogrammepc@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني: rekabprogrammepc@gmail.com</a></li>
+            <li><a href="https://web.facebook.com/profile.php?id=100083114323488" target="_blank"><i class="fab fa-facebook"></i> فيسبوك</a></li>
+            <li><a href="https://wa.me/+213549973969" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a></li>
+            <li><a href="https://www.instagram.com/your_instagram_profile" target="_blank"><i class="fab fa-instagram"></i> إنستغرام</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+</body></html>

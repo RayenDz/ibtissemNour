@@ -1,0 +1,100 @@
+/* تنسيق الهيدر */
+header {
+    background-color: #2C3E50; /* لون خلفية داكن */
+    color: white; /* لون النص أبيض */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px hsla(0, 8%, 95%, 0.1); /* ظل أسفل الهيدر */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* خط حديث */
+}
+
+.top-bar {
+    background-color: #34495e; /* لون داكن للشريط العلوي */
+    padding: 10px 20px;
+    text-align: right;
+    font-size: 14px;
+    color: #ecf0f1; /* لون نص فاتح */
+}
+
+header h1 {
+    margin: 20px 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: white; /* لون النص أبيض */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white; /* لون الروابط أبيض */
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: #e67e22; /* لون الروابط عند التمرير برتقالي */
+    transform: translateY(-3px); /* تأثير رفع الرابط عند التمرير */
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #e67e22; /* لون الخط البرتقالي */
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* عرض الخط عند التمرير */
+}
+
+/* تنسيق حقل البحث */
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #e67e22; /* لون الحدود برتقالي عند التركيز */
+}
+
+.search-button {
+    background-color: #e67e22; /* لون الخلفية برتقالي */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #d35400; /* لون أغمق عند التمرير */
+}
