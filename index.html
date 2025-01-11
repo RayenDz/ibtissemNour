@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <!-- saved from url=(0035)http://localhost/shoping2/index.php -->
-<html lang="ar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عرض الألبسة</title>
-    <link rel="stylesheet" href="./عرض الألبسة_files/style.css">
-    <link rel="stylesheet" href="./عرض الألبسة_files/style1.css">
-    <link rel="stylesheet" href="./عرض الألبسة_files/style2.css">
-    <link rel="stylesheet" href="./عرض الألبسة_files/Recharche.css">
-    <link rel="stylesheet" href="./عرض الألبسة_files/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="./index_files/all.min.css"> <!-- Font Awesome -->
     <style>
+        /* التنسيقات العامة */
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            text-align: center;
+            text-align: right; /* النص من اليمين لليسار */
+            margin: 0;
+            padding: 0;
         }
         .promo-bar {
             background-color: #ff6f61;
             color: #fff;
             padding: 10px;
             font-size: 1.2rem;
+            text-align: center;
         }
         .contact-bar {
             background-color: #333;
             color: #fff;
             padding: 10px;
             font-size: 1rem;
+            text-align: center;
         }
         .contact-bar a {
             color: #fff;
@@ -36,13 +37,41 @@
         .contact-bar a:hover {
             color: #ff6f61;
         }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        nav ul li a:hover {
+            color: #ff6f61;
+        }
         .search-container {
             margin: 20px 0;
             text-align: center;
         }
         .search-input {
             padding: 10px;
-            width: 300px;
+            width: 80%;
+            max-width: 400px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -94,6 +123,7 @@
         }
         .pagination {
             margin-top: 20px;
+            text-align: center;
         }
         .pagination-btn {
             padding: 10px 15px;
@@ -134,10 +164,6 @@
         .promo-text .highlight {
             font-weight: bold;
             color: #ffeb3b;
-        }
-        .promo-text .icon {
-            font-size: 1.5rem;
-            margin: 0 5px;
         }
         .promo-text .cta-button {
             background-color: #ff6f61;
@@ -182,6 +208,7 @@
             color: #fff;
             padding: 20px;
             margin-top: 20px;
+            text-align: center;
         }
         footer a {
             color: #ff6f61;
@@ -189,6 +216,26 @@
         }
         footer a:hover {
             color: #ff3b2f;
+        }
+
+        /* التصميم المتجاوب */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .search-input {
+                width: 90%;
+            }
+            .promo-text h1 {
+                font-size: 2rem;
+            }
+            .promo-text p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -207,7 +254,7 @@
 
 <header>
     <div class="top-bar">
-        <div id="date-time">السبت، ١١ يناير ٢٠٢٥ في ١٢:١٧:٤١ م</div>
+        <div id="date-time">السبت، ١١ يناير ٢٠٢٥ في ١٢:٣٢:٠٧ م</div>
     </div>
     <h1>عرض الألبسة</h1>
     <nav>
@@ -267,13 +314,13 @@
 <section class="properties-container">
     <h2>قائمة الألبسة</h2>
 
-    <div class="property-grid"><div class="property"><img src="./عرض الألبسة_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> الجزائر</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=4&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/VxkoFnE.jpeg" alt="ألبسة الحور" class="property-image"><div class="property-details"><h3>ألبسة الحور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=5&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D9%84%D8%AD%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FVxkoFnE.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/b5tZzyZ.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=6&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Fb5tZzyZ.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/dCZyINp.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=7&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FdCZyINp.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/MplVO2W.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=8&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FMplVO2W.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/DKb8I5r.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=9&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FDKb8I5r.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/fk131Ww.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=10&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Ffk131Ww.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/9oz3MOh.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=11&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2F9oz3MOh.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=12&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./عرض الألبسة_files/Zn43mtH.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=13&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FZn43mtH.jpeg" class="btn-buy">شراء</a></div></div></div>
+    <div class="property-grid"><div class="property"><img src="./index_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> الجزائر</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=4&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/VxkoFnE.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=5&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FVxkoFnE.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/b5tZzyZ.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=6&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Fb5tZzyZ.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/dCZyINp.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=7&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FdCZyINp.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/MplVO2W.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=8&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FMplVO2W.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/DKb8I5r.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=9&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FDKb8I5r.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/fk131Ww.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=10&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Ffk131Ww.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/9oz3MOh.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=11&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2F9oz3MOh.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=12&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/Zn43mtH.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=13&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FZn43mtH.jpeg" class="btn-buy">شراء</a></div></div></div>
     <!-- روابط التنقل بين الصفحات -->
     <div class="pagination">
         <span class="current-page">1</span>    </div>
 </section>
 
-<script src="./عرض الألبسة_files/script.js.télécharger"></script>
+<script src="./index_files/script.js.télécharger"></script>
 <footer>
     <div class="container">
         <p>© 2024 موقع بيع المنتوجات. جميع الحقوق محفوظة.</p>
