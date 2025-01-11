@@ -259,14 +259,14 @@
     <h1>عرض الألبسة</h1>
     <nav>
         <ul>
-            <li><a href="index.php">الرئيسية</a></li>
+            <li><a href="index.html">الرئيسية</a></li>
             <li><a href="https://forms.gle/48yQoJPHrHQt5R5P9">سجل طلبيتك</a></li>
         </ul>
     </nav>
     <!-- حقل البحث -->
     <div class="search-container">
-        <form method="GET" action="view_properties.php">
-            <input type="text" name="search" placeholder="ابحث عن منتج أو سعر..." class="search-input" value="<?php echo htmlspecialchars($search); ?>">
+        <form method="GET" action="#">
+            <input type="text" name="search" placeholder="ابحث عن منتج أو سعر..." class="search-input">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i> <!-- أيقونة البحث -->
             </button>
@@ -312,51 +312,49 @@
 <section class="properties-container">
     <h2>قائمة الألبسة</h2>
 
-    <?php
-    // افترض أن $result هو نتيجة استعلام قاعدة البيانات
-    if ($result->num_rows > 0) {
-        // عرض الألبسة في شبكة
-        echo '<div class="property-grid">';
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='property'>";
-            echo "<img src='" . $row['image_url'] . "' alt='" . $row['title'] . "' class='property-image'>";
-            echo "<div class='property-details'>";
-            echo "<h3>" . $row['title'] . "</h3>";
-            echo "<p class='description'>" . $row['description'] . "</p>";
-            echo "<p><strong>السعر:</strong> " . $row['price'] . " ج.م</p>";
-            echo "<p><strong>الموقع:</strong> " . $row['location'] . "</p>";
-            echo "<p><strong>النوع:</strong> " . $row['type'] . "</p>";
-            // زر شراء مع الرابط الجديد
-            echo "<a href='https://forms.gle/gsaTWoAyXf4rWSjMA' class='btn-buy' target='_blank'>شراء</a>";
-            echo "</div>";
-            echo "</div>";
-        }
-        echo '</div>';
-    } else {
-        echo "<p>لا توجد ألبسة لعرضها.</p>";
-    }
-    ?>
+    <div class="property-grid">
+        <!-- العنصر 1 -->
+        <div class="property">
+            <img src="https://via.placeholder.com/300" alt="بيجامة كلاص" class="property-image">
+            <div class="property-details">
+                <h3>بيجامة كلاص</h3>
+                <p class="description">بيجامة أنيقة ومريحة، مثالية للنوم أو الاسترخاء.</p>
+                <p><strong>السعر:</strong> 1500 ج.م</p>
+                <p><strong>النوع:</strong> بيجامة</p>
+                <a href="https://forms.gle/gsaTWoAyXf4rWSjMA" class="btn-buy" target="_blank">شراء</a>
+            </div>
+        </div>
+
+        <!-- العنصر 2 -->
+        <div class="property">
+            <img src="https://via.placeholder.com/300" alt="شابا صيفي" class="property-image">
+            <div class="property-details">
+                <h3>شابا صيفي</h3>
+                <p class="description">شابا خفيف ومريح، مثالي للصيف.</p>
+                <p><strong>السعر:</strong> 1200 ج.م</p>
+                <p><strong>النوع:</strong> شابا</p>
+                <a href="https://forms.gle/gsaTWoAyXf4rWSjMA" class="btn-buy" target="_blank">شراء</a>
+            </div>
+        </div>
+
+        <!-- العنصر 3 -->
+        <div class="property">
+            <img src="https://via.placeholder.com/300" alt="بيجامة شتوية" class="property-image">
+            <div class="property-details">
+                <h3>بيجامة شتوية</h3>
+                <p class="description">بيجامة دافئة ومريحة لفصل الشتاء.</p>
+                <p><strong>السعر:</strong> 1800 ج.م</p>
+                <p><strong>النوع:</strong> بيجامة</p>
+                <a href="https://forms.gle/gsaTWoAyXf4rWSjMA" class="btn-buy" target="_blank">شراء</a>
+            </div>
+        </div>
+    </div>
 
     <!-- روابط التنقل بين الصفحات -->
     <div class="pagination">
-        <?php
-        // إضافة روابط الصفحات (التصفح بين الصفحات)
-        if ($page > 1) {
-            echo "<a href='view_properties.php?page=" . ($page - 1) . "&search=" . urlencode($search) . "' class='pagination-btn'>&laquo; الصفحة السابقة</a>"; // الصفحة السابقة
-        }
-
-        for ($i = 1; $i <= $total_pages; $i++) {
-            if ($i == $page) {
-                echo "<span class='current-page'>$i</span>"; // الصفحة الحالية
-            } else {
-                echo "<a href='view_properties.php?page=$i&search=" . urlencode($search) . "' class='pagination-btn'>$i</a>"; // روابط الصفحات
-            }
-        }
-
-        if ($page < $total_pages) {
-            echo "<a href='view_properties.php?page=" . ($page + 1) . "&search=" . urlencode($search) . "' class='pagination-btn'>الصفحة التالية &raquo;</a>"; // الصفحة التالية
-        }
-        ?>
+        <a href="#" class="pagination-btn">&laquo; الصفحة السابقة</a>
+        <span class="current-page">1</span>
+        <a href="#" class="pagination-btn">الصفحة التالية &raquo;</a>
     </div>
 </section>
 
