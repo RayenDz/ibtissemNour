@@ -1,10 +1,43 @@
+<?php
+include 'db_connection.php'; // الاتصال بقاعدة البيانات
+
+// تحديد عدد الألبسة التي سيتم عرضها في كل صفحة
+$items_per_page = 10;
+
+// حساب رقم الصفحة الحالية بناءً على المتغير في URL (إذا كان موجودًا)
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1) * $items_per_page; // تحديد نقطة البداية للبيانات في الاستعلام
+
+// التحقق من وجود كلمة بحث
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
+// استعلام لإحضار الألبسة مع التحديد حسب الصفحة والبحث
+$sql = "SELECT property_id, title, description, price, location, type, image_url FROM properties 
+        WHERE title LIKE '%$search%' 
+        OR description LIKE '%$search%' 
+        OR price LIKE '%$search%' 
+        LIMIT $items_per_page OFFSET $offset";
+$result = $conn->query($sql);
+
+// استعلام لحساب إجمالي عدد الألبسة مع البحث
+$total_sql = "SELECT COUNT(*) FROM properties 
+              WHERE title LIKE '%$search%' 
+              OR description LIKE '%$search%' 
+              OR price LIKE '%$search%'";
+$total_result = $conn->query($total_sql);
+$total_rows = $total_result->fetch_row()[0]; // إجمالي عدد الألبسة
+$total_pages = ceil($total_rows / $items_per_page); // حساب إجمالي عدد الصفحات
+
+$conn->close(); // إغلاق الاتصال بعد الانتهاء
+?>
+
 <!DOCTYPE html>
-<!-- saved from url=(0035)http://localhost/shoping2/index.php -->
-<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عرض الألبسة</title>
-    <link rel="stylesheet" href="./index_files/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome -->
     <style>
         /* التنسيقات العامة */
         body {
@@ -239,7 +272,7 @@
         }
     </style>
 </head>
-<body style="">
+<body>
 <div class="promo-bar">
     <span>🎉 تسوق الآن واحصل على خصومات تصل إلى 50%! 🌟 أحدث صيحات الموضة بانتظارك! 🚀</span>
 </div>
@@ -254,21 +287,21 @@
 
 <header>
     <div class="top-bar">
-        <div id="date-time">السبت، ١١ يناير ٢٠٢٥ في ١٢:٣٢:٠٧ م</div>
+        <div id="date-time"></div>
     </div>
     <h1>عرض الألبسة</h1>
     <nav>
         <ul>
-            <li><a href="http://localhost/shoping2/add_property.php">إضافة الألبسة</a></li>
-            <li><a href="http://localhost/shoping2/index.php">الرئيسية</a></li>
-            <li><a href="http://localhost/shoping2/view_properties.php">عرض الألبسة</a></li>
-            <li><a href="http://localhost/shoping2/view_Orders.php">عرض الطلبيات</a></li>
+            <li><a href="add_property.php">إضافة الألبسة</a></li>
+            <li><a href="index.php">الرئيسية</a></li>
+            <li><a href="view_properties.php">عرض الألبسة</a></li>
+            <li><a href="view_Orders.php">عرض الطلبيات</a></li>
         </ul>
     </nav>
     <!-- حقل البحث -->
     <div class="search-container">
-        <form method="GET" action="http://localhost/shoping2/view_properties.php">
-            <input type="text" name="search" placeholder="ابحث عن منتج أو سعر..." class="search-input" value="">
+        <form method="GET" action="view_properties.php">
+            <input type="text" name="search" placeholder="ابحث عن منتج أو سعر..." class="search-input" value="<?php echo htmlspecialchars($search); ?>">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i> <!-- أيقونة البحث -->
             </button>
@@ -314,16 +347,57 @@
 <section class="properties-container">
     <h2>قائمة الألبسة</h2>
 
-    <div class="property-grid"><div class="property"><img src="./index_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> الجزائر</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=4&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/VxkoFnE.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=5&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FVxkoFnE.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/b5tZzyZ.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=6&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Fb5tZzyZ.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/dCZyINp.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=7&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FdCZyINp.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/MplVO2W.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=8&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FMplVO2W.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/DKb8I5r.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=9&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FDKb8I5r.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/fk131Ww.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=10&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2Ffk131Ww.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/9oz3MOh.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=11&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2F9oz3MOh.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/ocwLJ0p.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة نساء</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=12&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FocwLJ0p.jpeg" class="btn-buy">شراء</a></div></div><div class="property"><img src="./index_files/Zn43mtH.jpeg" alt="ألبسة ابتسام نور" class="property-image"><div class="property-details"><h3>ألبسة ابتسام نور</h3><p class="description">ألبسة أطفال</p><p><strong>السعر:</strong> 2500.00 ج.م</p><p><strong>الموقع:</strong> بالعباس</p><p><strong>النوع:</strong> جديد</p><a href="http://localhost/shoping2/purchase.php?property_id=13&amp;title=%D8%A3%D9%84%D8%A8%D8%B3%D8%A9+%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85+%D9%86%D9%88%D8%B1&amp;price=2500.00&amp;image_url=https%3A%2F%2Fi.imgur.com%2FZn43mtH.jpeg" class="btn-buy">شراء</a></div></div></div>
+    <?php
+    if ($result->num_rows > 0) {
+        // عرض الألبسة في شبكة
+        echo '<div class="property-grid">';
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='property'>";
+            echo "<img src='" . $row['image_url'] . "' alt='" . $row['title'] . "' class='property-image'>";
+            echo "<div class='property-details'>";
+            echo "<h3>" . $row['title'] . "</h3>";
+            echo "<p class='description'>" . $row['description'] . "</p>";
+            echo "<p><strong>السعر:</strong> " . $row['price'] . " ج.م</p>";
+            echo "<p><strong>الموقع:</strong> " . $row['location'] . "</p>";
+            echo "<p><strong>النوع:</strong> " . $row['type'] . "</p>";
+            // زر شراء مع رابط للصفحة الثانية
+            echo "<a href='purchase.php?property_id=" . $row['property_id'] . "&title=" . urlencode($row['title']) . "&price=" . $row['price'] . "&image_url=" . urlencode($row['image_url']) . "' class='btn-buy'>شراء</a>";
+            echo "</div>";
+            echo "</div>";
+        }
+        echo '</div>';
+    } else {
+        echo "<p>لا توجد ألبسة لعرضها.</p>";
+    }
+    ?>
+
     <!-- روابط التنقل بين الصفحات -->
     <div class="pagination">
-        <span class="current-page">1</span>    </div>
+        <?php
+        // إضافة روابط الصفحات (التصفح بين الصفحات)
+        if ($page > 1) {
+            echo "<a href='view_properties.php?page=" . ($page - 1) . "&search=" . urlencode($search) . "' class='pagination-btn'>&laquo; الصفحة السابقة</a>"; // الصفحة السابقة
+        }
+
+        for ($i = 1; $i <= $total_pages; $i++) {
+            if ($i == $page) {
+                echo "<span class='current-page'>$i</span>"; // الصفحة الحالية
+            } else {
+                echo "<a href='view_properties.php?page=$i&search=" . urlencode($search) . "' class='pagination-btn'>$i</a>"; // روابط الصفحات
+            }
+        }
+
+        if ($page < $total_pages) {
+            echo "<a href='view_properties.php?page=" . ($page + 1) . "&search=" . urlencode($search) . "' class='pagination-btn'>الصفحة التالية &raquo;</a>"; // الصفحة التالية
+        }
+        ?>
+    </div>
 </section>
 
-<script src="./index_files/script.js.télécharger"></script>
+<script src="script.js"></script>
 <footer>
     <div class="container">
-        <p>© 2024 موقع بيع المنتوجات. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2024 موقع بيع المنتوجات. جميع الحقوق محفوظة.</p>
         <ul>
             <li><a href="tel:0549973969"><i class="fas fa-phone"></i> اتصل بنا: 0549973969</a></li>
             <li><a href="mailto:rekabprogrammepc@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني: rekabprogrammepc@gmail.com</a></li>
@@ -334,5 +408,5 @@
     </div>
 </footer>
 
-
-</body></html>
+</body>
+</html>
